@@ -182,3 +182,199 @@ URL: http://hovercraftstudio.ie
   font-size-adjust: 0.53;
   font-weight: 200;
   font-style: normal; }
+
+
+
+
+
+
+
+div.county-icon {
+  font-family: "countyiconregular";
+  text-align: center;
+  vertical-align: top;
+  width: 200px;
+}
+
+.custom-county-bg {
+    -webkit-animation:progress 6s linear infinite;
+    -moz-animation:progress 6s linear infinite;
+    -ms-animation:progress 6s linear infinite;
+    animation:progress 6s linear infinite;
+    background-size: 100% 100%;
+    color: #00ff00;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@-webkit-keyframes progress{
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -200px 0px;
+  }
+}
+@-moz-keyframes progress{
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -200px 0px;
+  }
+}
+@-ms-keyframes progress{
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -200px 0px;
+  }
+}
+@keyframes progress{
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -200px 0px;
+  }
+}
+
+.custom-county-container {
+  width: 200px;
+  height: 200px;
+  font-size: 150px;
+  position: relative;
+}
+
+.county-container {
+  width: 200px;
+  float: left;
+}
+
+.custom-county-container {
+  display: block;
+  float: left;
+}
+
+.custom-county {
+  text-shadow: 1px 1px 2px black;
+}
+
+.county-left-half, .county-right-half {
+  position: absolute;
+  width: 50%;
+  overflow: hidden;
+  top: 0px;
+}
+
+.county-left-half {
+  left: 0px;
+}
+
+.county-right-half {
+  right: 0px;
+  direction: rtl;
+}
+
+.county-right-third {
+  right: 0px;
+  direction: rtl;
+  width: 42%;
+  position: absolute;
+  overflow: hidden;
+  top: 0px;
+}
+
+.county-left-third {
+  left: 0px;
+  width: 42%;
+  position: absolute;
+  overflow: hidden;
+  top: 0px;
+}
+
+.county-middle-third {
+  left: 0px;
+  position: absolute;
+  overflow: hidden;
+  top: 0px;
+}
+
+
+
+.center {
+  width: 100%;
+  text-align: center;
+}
+
+/* County Colours */
+.county-saffron { color: #FEDA00; }
+.county-orange { color: #FF8800; }
+.county-blue { color: #00F; }
+.county-red { color: #F00; }
+.county-white {color: #FFF; }
+.county-green { color: #009900; }
+.county-gold { color: #FFD700; }
+.county-maroon { color: #990000; }
+.county-primrose { color: #F3CF55; }
+.county-skyblue { color: #88B8FD; }
+.county-navyblue { color: #000080; }
+.county-purple { color: #660099; }
+.county-amber { color: #FFC125; }
+.county-yellow { color: #FF0; }
+
+/* Ulster */
+.county-antrim-bg { background-image: linear-gradient(to right, #FEDA00 50%, #FFF 0%); }
+.county-armagh-bg { background-image: linear-gradient(to right, #FF8800 50%, #FFF 0%); }
+.county-cavan-bg { background-image: linear-gradient(to right, #00F 50%, #FFF 0%); }
+.county-derry-bg { background-image: linear-gradient(to right, #F00 50%, #FFF 0%); }
+.county-donegal-bg { background-image: repeating-linear-gradient(to right, #009900 0px, #009900 20px,
+                                                                            #FFD700 20px, #FFD700 40px); }
+.county-down-bg { background-image: linear-gradient(to right, #F00 50%, #000 0%); }
+.county-fermanagh-bg { background-image: linear-gradient(to right, #009900 50%, #FFF 0%); }
+.county-monaghan-bg { background-image: linear-gradient(to right, #FFF 50%, #00F 0%); }
+.county-tyrone-bg { background-image: linear-gradient(to right, #FFF 50%, #F00 0%); }
+
+/* Connacht */
+.county-galway-bg { background-image: linear-gradient(to right, #990000 50%, #FFF 0%); }
+.county-lietrim-bg { background-image: linear-gradient(to right, #009900 50%, #FFFF00 0%); }
+.county-mayo-bg { background-image: linear-gradient(to right, #009900 50%, #0F0 0%); }
+.county-roscommon-bg { background-image: linear-gradient(to right, #00F 50%, #F3CF55 0%); }
+.county-sligo-bg { background-image: linear-gradient(to right, #000 50%, #FFF 0%); }
+
+/* Munster */
+.county-clare-bg { background-image: linear-gradient(to right, #FEDA00 50%, #00F 0%); }
+.county-cork-bg { background-image: linear-gradient(to right, #F00 50%, #FFF 0%); }
+.county-kerry-bg { background-image: linear-gradient(to right, #009900 50%, #FFD700 0%); }
+.county-limerick-bg { background-image: linear-gradient(to right, #009900 50%, #FFF 0%); }
+.county-tipperary-bg { background-image: linear-gradient(to right, #00F 50%, #FFD700 0%); }
+.county-waterford-bg { background-image: linear-gradient(to right, #FFF 50%, #00F 0%); }
+
+/* Leinster */
+.county-carlow-bg { background-image: linear-gradient(to right, #009900 0%, #009900 34%,
+                                                                #F00 0%, #F00 66%, #FF0 0%); }
+.county-dublin-bg { background-image: linear-gradient(to right, #88B8FD 50%, #000080 0%); }
+.county-kildare-bg { background-image: linear-gradient(to right, #FFF 50%, #FFF 0%); }
+.county-kilkenny-bg { background-image: linear-gradient(to right, #000 50%, ##FFC125 0%); }
+.county-laois-bg { background-image: linear-gradient(to right, #00F 50%, #FFF 0%); }
+.county-longford-bg { background-image: linear-gradient(to right, #00F 50%, #FFD700 0%); }
+.county-louth-bg { background-image: linear-gradient(to right, #F00 50%, #00F 0%); }
+.county-meath-bg { background-image: linear-gradient(to right, #009900 50%, #FFD700 0%); }
+.county-offaly-bg { background-image: linear-gradient(to right, #009900 0%, #009900 34%,
+                                                                #FFF 0%, #FFF 66%, #FFD700 0%); }
+.county-westmeath-bg { background-image: linear-gradient(to right, #990000 50%, #FFF 0%); }
+.county-wexford-bg { background-image: linear-gradient(to right, #660099 50%, #FFD700 0%); }
+.county-wicklow-bg { background-image: linear-gradient(to right, #00F 50%, #FFD700 0%); }
+
+body {
+  background-color: grey;
+}
+
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
