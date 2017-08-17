@@ -1,0 +1,19 @@
+.main-map-container {
+  width: 60%;
+  border: solid 2px black;
+  border-radius: 20px;
+  background-color: aqua;
+  margin: 3%;
+  height: 90vh;
+  float: left;
+}
+
+.main-region-list-container {
+  width: 30%;
+  border: solid 2px black;
+  border-radius: 20px;
+  background-color: indigo;
+  margin: 3% 3% 3% 0%;
+  height: 90vh;
+  float: left;
+}
