@@ -61,7 +61,7 @@ URL: http://hovercraftstudio.ie
   list-style: none;
   background: #eeeeee;
   border-radius: 0; }
-  .county-map li, button {
+  .county-map li {
     float: left;
     margin: 0 0 0 -100%;
     position: relative;
