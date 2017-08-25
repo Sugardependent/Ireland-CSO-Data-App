@@ -3,12 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import { ChartsModule } from 'ng2-charts';
+import { ChartsComponent} from './charts.component';
+import { BarChartComponent} from './barChart.component';
+import { DynLineChartComponent } from './dynLineChart.component';
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChartsComponent,
+    BarChartComponent,
+    DynLineChartComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

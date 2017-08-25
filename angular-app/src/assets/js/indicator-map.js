@@ -120,12 +120,15 @@ window.onload = function() {
   });
 
   /* Hover Dropdown JS */
+  /*
   $('ul.nav li.dropdown').hover(function() {
     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
   }, function() {
     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
   });
+  */
 
+/*
    $(function(){
      var i = 0;
      while(i<100){
@@ -133,4 +136,5 @@ window.onload = function() {
       i++;
      }
     })
+    */
 };

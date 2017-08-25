@@ -41,22 +41,26 @@ Welcome to {{title}}!
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle trig_county uls" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ulster <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ulster <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Armagh</a></li>
-            <li><a href="#">Antrim</a></li>
+            <li><a class="trig_county uls" href="#">Province</a></li>
+            <div class="dropdown-divider"></div>
+            <!--<li><a href="#">Armagh</a></li>-->
+            <!--<li><a href="#">Antrim</a></li>-->
             <li><a class="trig_county cn" href="#">Cavan</a></li>
-            <li><a href="#">Derry</a></li>
+            <!--<li><a href="#">Derry</a></li>-->
             <li><a class="trig_county dl" href="#">Donegal</a></li>
-            <li><a href="#">Down</a></li>
-            <li><a href="#">Fermanagh</a></li>
+            <!--<li><a href="#">Down</a></li>-->
+            <!--<li><a href="#">Fermanagh</a></li>-->
             <li><a class="trig_county mn" href="#">Monaghan</a></li>
-            <li><a href="#">Tyrone</a></li>
+            <!--<li><a href="#">Tyrone</a></li>-->
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle trig_county con" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connacht <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connacht <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><a class="trig_county con" href="#">Province</a></li>
+            <div class="dropdown-divider"></div>
             <li><a class="trig_county ga" href="#">Galway</a></li>
             <li><a class="trig_county le" href="#">Lietrim</a></li>
             <li><a class="trig_county mo" href="#">Mayo</a></li>
@@ -65,8 +69,10 @@ Welcome to {{title}}!
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle trig_county mun" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Munster <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Munster <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><a class="trig_county mun" href="#">Province</a></li>
+            <div class="dropdown-divider"></div>
             <li><a class="trig_county ce" href="#">Clare</a></li>
             <li><a class="trig_county ck" href="#">Cork</a></li>
             <li><a class="trig_county ke" href="#">Kerry</a></li>
@@ -76,8 +82,10 @@ Welcome to {{title}}!
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle trig_county lei" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Leinster <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Leinster <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><a class="trig_county lei" href="#">Province</a></li>
+            <div class="dropdown-divider"></div>
             <li><a class="trig_county cw" href="#">Carlow</a></li>
             <li><a class="trig_county db" href="#">Dublin</a></li>
             <li><a class="trig_county kd" href="#">Kildare</a></li>
@@ -92,7 +100,17 @@ Welcome to {{title}}!
             <li><a class="trig_county ww" href="#">Wicklow</a></li>
           </ul>
         </li>
+        <!--
         <li><a class="trig_county roi" href="#">Rep. of Ireland</a></li>
+      -->
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rep. of Ireland<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a class="trig_county roi" href="#">Nationwide</a></li>
+          <div class="dropdown-divider"></div>
+          <li><a class="trig_county roi" href="#">County Compare</a></li>
+        </ul>
+      </li>
       </ul>
       <!--
       <form class="navbar-form navbar-left">
@@ -163,24 +181,24 @@ Welcome to {{title}}!
   </div>
 
   <div class="graph-container">
-    
+    <app-charts></app-charts>
   </div>
 
 </div>
 
 
-  <!--
-  <div class="main-region-list-container">
-  <ul class="region-list">
-  <li class="province ulster"><button><span>Ulster</span></button></li>
-  <li class="county armagh"><button><span class="county-icon">b</span><span>Armagh</span></button></li>
-  <li class="county cavan"><button><span class="county-icon">d</span><span>Cavan</span></button></li>
-  <li class="county derry"><button><span class="county-icon">g</span><span>Derry</span></button></li>
-  <li class="county donegal"><button><span class="county-icon">h</span><span>Donegal</span></button></li>
-  <li class="county down"><button><span class="county-icon">i</span><span>Down</span></button></li>
-  <li class="county fermanagh"><button><span class="county-icon">k</span><span>Fermanagh</span></button></li>
-  <li class="county monaghan"><button><span class="county-icon">w</span><span>Monaghan</span></button></li>
-  <li class="county tyrone"><button><span class="county-icon">B</span><span>Tyrone</span></button></li>
+<!--
+<div class="main-region-list-container">
+<ul class="region-list">
+<li class="province ulster"><button><span>Ulster</span></button></li>
+<li class="county armagh"><button><span class="county-icon">b</span><span>Armagh</span></button></li>
+<li class="county cavan"><button><span class="county-icon">d</span><span>Cavan</span></button></li>
+<li class="county derry"><button><span class="county-icon">g</span><span>Derry</span></button></li>
+<li class="county donegal"><button><span class="county-icon">h</span><span>Donegal</span></button></li>
+<li class="county down"><button><span class="county-icon">i</span><span>Down</span></button></li>
+<li class="county fermanagh"><button><span class="county-icon">k</span><span>Fermanagh</span></button></li>
+<li class="county monaghan"><button><span class="county-icon">w</span><span>Monaghan</span></button></li>
+<li class="county tyrone"><button><span class="county-icon">B</span><span>Tyrone</span></button></li>
 </ul>
 </div>
 -->
