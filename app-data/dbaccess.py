@@ -10,8 +10,7 @@ try:
 
     #cursor.execute("""SELECT current_database()""")
     cursor.execute("""SELECT table_name FROM information_schema.tables WHERE table_schema='public'""")
-    cursor.execute("""select column_name, data_type, character_maximum_length
-from INFORMATION_SCHEMA.COLUMNS where table_name = 'graph';""")
+    cursor.execute("""select column_name, data_type, character_maximum_length from INFORMATION_SCHEMA.COLUMNS where table_name = 'graph';""")
     rows = cursor.fetchall()
     print(rows)
 except Exception as e:
