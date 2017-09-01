@@ -1,4 +1,5 @@
 import csv
+import psycopg2
 from collections import OrderedDict
 
 birthsLastTitle = "Births since last Census (Number)"
@@ -125,9 +126,49 @@ with open('county-population-mfb-all.csv', newline='') as csvfile:
                 femaleEntries.append(z)
                 femaleRegions.append(z.region)
 
-
+        """
         print(len(bothEntries))
         print(len(maleEntries))
         print(len(femaleEntries))
         print(femaleRegions)
         print(maleRegions)
+        """
+
+try:
+    connect_str = "dbname='csodata' user='admin1' host='localhost' " +\
+                    "password='seismictoss613'"
+    conn = psycopg2.connect(connect_str)
+    cursor = conn.cursor()
+
+    for a in entries:
+        gender = "n/a"
+        population = a.populationNumber
+        populationDiff = a.populationChange
+        if a.gender == 1:
+            gender = "both"
+        elif a.gender == 2:
+            gender = "male"
+        elif a.gender == 3:
+            gender = "female"
+
+        region = a.region
+        commandcreate = "INSERT INTO graph(region_name, graph_name, gender) values(%s, 'Population (Number)', %s )"
+        commandcreatevars = (region, gender)
+        commandfind = "SELECT data_id FROM graph WHERE region_name=%s AND gender=%s"
+        cursor.execute(commandcreate, commandcreatevars)
+        cursor.execute(commandfind, commandcreatevars)
+        data_idVar = cursor.fetchone()
+
+        for x, y in population.items():
+            commandPointVars = (x, y, data_idVar)
+            commandPointCreate = "INSERT INTO data_point(x_value, y_value, data_id) values(%s, %s, %s)"
+            cursor.execute(commandPointCreate, commandPointVars)
+
+    conn.commit()
+
+    cursor.execute("""SELECT * FROM graph""")
+    rows = cursor.fetchall()
+    print(rows)
+except Exception as e:
+    print("Issues Connecting: Exception Thrown")
+    print(e)

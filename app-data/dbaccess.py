@@ -9,9 +9,14 @@ try:
     # run a SELECT statement - no data in there, but we can try it
 
     #cursor.execute("""SELECT current_database()""")
-    cursor.execute("""SELECT table_name FROM information_schema.tables WHERE table_schema='public'""")
-    cursor.execute("""select column_name, data_type, character_maximum_length from INFORMATION_SCHEMA.COLUMNS where table_name = 'graph';""")
+    cursor.execute("""select * from graph""")
+
     rows = cursor.fetchall()
+    cursor.execute("""select * from data_point""")
+
+    rows = cursor.fetchall()
+
+
     print(rows)
 except Exception as e:
     print("Uh oh, can't connect. Invalid dbname, user or password?")
