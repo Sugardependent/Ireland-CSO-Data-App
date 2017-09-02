@@ -26,11 +26,15 @@ class GraphPointsList(generics.ListAPIView):
         dataid = self.kwargs['graphid']
         return Data_Point.objects.filter(data_id=dataid)
 
+class GraphPointsCompleteList(generics.RetrieveAPIView):
+    queryset = Graph.objects.all()
+    serializer_class = GraphPointsSerializer
 
+""" 
 class GraphPointsCompleteList(generics.ListAPIView):
     serializer_class = GraphPointsSerializer
 
     def get_queryset(self):
         dataid = self.kwargs['graphid']
-        print(Graph.objects.filter(data_id=dataid))
         return Graph.objects.filter(data_id=dataid)
+"""

@@ -1,4 +1,6 @@
-import { OnInit, Component } from '@angular/core';
+import { ViewChild, OnInit, Component } from '@angular/core';
+
+import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 
 import 'rxjs/add/operator/map';
 
@@ -13,6 +15,9 @@ import { GraphService } from './graphdata.service';
 
 
 export class BarChartComponent implements OnInit {
+
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
+
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true
@@ -25,21 +30,31 @@ export class BarChartComponent implements OnInit {
   public xvalues: number[] = [];
   public yvalues: number[] = [];
   public barChartData: any[] = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
+    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' }
   ];
 
-  constructor(private graphService: GraphService) {}
+  constructor(private graphService: GraphService) { }
 
   ngOnInit() {
-    this.graphService
-        .get(439)
-        .map(graph => this.points = graph.points);
-    for (let x of this.points) {
-      this.xvalues.push(x.x_value);
-      this.yvalues.push(x.y_value);
-    }
+    let graph = this.graphService
+      .get(439)
+      .subscribe(graphdata => {
+        this.xvalues = [];
+        this.yvalues = [];
+        this.barChartLabels = [];
+        this.barChartData = [];
+        for (let x of graphdata.points) {
+          this.xvalues.push(x.x_value);
+          this.barChartLabels.push(String(x.x_value));
+          this.yvalues.push(x.y_value);
+        }
+        this.barChartData = [
+          { data: this.yvalues, label: 'Population' }
+        ];
+        this.chart.chart.update();
+      })
   }
+
 
   // events
   public chartClicked(e: any): void {
@@ -49,25 +64,33 @@ export class BarChartComponent implements OnInit {
     console.log(e);
   }
   public GenderButton(): void {
-    console.log(this.graphService.get(439));
-    // Only Change 3 values
-    /*
-    let data = [
-      Math.round(Math.random() * 100),
-      59,
-      80,
-      (Math.random() * 100),
-      56,
-      (Math.random() * 100),
-      40];
-      let clone = JSON.parse(JSON.stringify(this.barChartData));
-      clone[0].data = data;
-      this.barChartData = clone;
-      /**
-      * (My guess), for Angular to recognize the change in the dataset
-      * it has to change the dataset variable directly,
-      * so one way around it, is to clone the data, change it and then
-      * assign it;
-      */
+    let k = 0;
+    if (this.gender == 1) {
+      this.gender = 2;
+      k = 440;
+    } else if (this.gender == 2) {
+      this.gender = 3;
+      k = 441;
+    } else if (this.gender == 3) {
+      this.gender = 1;
+      k = 439;
     }
+
+    let graph = this.graphService
+    .get(k)
+    .subscribe(graphdata => {
+      this.xvalues = [];
+      this.yvalues = [];
+      this.barChartLabels = [];
+      this.barChartData = [];
+      for (let x of graphdata.points) {
+        this.xvalues.push(x.x_value);
+        this.barChartLabels.push(String(x.x_value));
+        this.yvalues.push(x.y_value);
+      }
+      this.barChartData = [
+        { data: this.yvalues, label: 'Population' }
+      ];
+    })
   }
+}

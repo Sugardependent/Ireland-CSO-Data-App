@@ -14,18 +14,20 @@ export class GraphService {
 
   get(id: number): Observable<GraphData> {
     let graphdata$ = this.http
-    .get(`${this.baseUrl}/${id}/complete?format=json`)
-    .map(data => data.json());
-
+      .get(`${this.baseUrl}/${id}/complete?format=json`)
+      .map(mapGraph);
+    
+    /* 
     this.http.get(`http://swapi.co/api/people/1`).map((response:Response) => {
       console.log(response.json());
       response.json();
     }).subscribe();
 
     this.http.get('http://127.0.0.1:8000/graphs/439/complete?format=json').map((response:Response) => {
-      console.log(response.json()[0]);
+      console.log(response.json());
       response.json();
-    }).subscribe();
+      }).subscribe();
+    */  
 
     return graphdata$;
   }
@@ -54,7 +56,7 @@ function toGraph(r: any): GraphData{
     graph_name: r.graph_name,
     points: r.points
   });
-  console.log('Parsed graph:', graphdata);
+  //console.log('Parsed graph:', graphdata);
   return graphdata;
 }
 
