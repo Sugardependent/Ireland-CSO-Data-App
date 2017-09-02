@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
+import { OnInit, Component } from '@angular/core';
+
+import 'rxjs/add/operator/map';
+
+import { GraphData } from './graphdata';
+import { GraphService } from './graphdata.service';
 
 @Component({
   selector: 'app-bar-chart',
   templateUrl: './barChart.component.html',
   styleUrls: ['./barChart.component.scss']
 })
-export class BarChartComponent {
+
+
+export class BarChartComponent implements OnInit {
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true
@@ -13,10 +20,27 @@ export class BarChartComponent {
   public barChartLabels: string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
+  public gender: number = 1;
+  public points: any[] = [];
+  public xvalues: number[] = [];
+  public yvalues: number[] = [];
   public barChartData: any[] = [
     {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
     {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
   ];
+
+  constructor(private graphService: GraphService) {}
+
+  ngOnInit() {
+    this.graphService
+        .get(439)
+        .map(graph => this.points = graph.points);
+    for (let x of this.points) {
+      this.xvalues.push(x.x_value);
+      this.yvalues.push(x.y_value);
+    }
+  }
+
   // events
   public chartClicked(e: any): void {
     console.log(e);
@@ -24,8 +48,10 @@ export class BarChartComponent {
   public chartHovered(e: any): void {
     console.log(e);
   }
-  public randomize(): void {
+  public GenderButton(): void {
+    console.log(this.graphService.get(439));
     // Only Change 3 values
+    /*
     let data = [
       Math.round(Math.random() * 100),
       59,

@@ -32,4 +32,5 @@ class GraphPointsCompleteList(generics.ListAPIView):
 
     def get_queryset(self):
         dataid = self.kwargs['graphid']
+        print(Graph.objects.filter(data_id=dataid))
         return Graph.objects.filter(data_id=dataid)
