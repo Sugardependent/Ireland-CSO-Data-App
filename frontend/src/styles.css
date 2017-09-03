@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  overflow-y: hidden;
+}
+
+@media screen and (max-width: 1020px) {
+  body {
+    overflow-y: inherit;
+  }
+}
+
+.dropdown-divider {
+  height: 1px;
+  margin: .5rem 0;
+  overflow: hidden;
+  background-color: #eceeef;
+}

@@ -1,0 +1,210 @@
+///////////////////////////////////////////////////////////////
+
+/* Main wrapper */
+.main-wrapper {
+  margin-top: 50px;
+}
+
+///////////////////////////////////////////////////////////////
+
+/* Main Containers */
+div.main-map-container {
+  width: 330px;
+  @media screen and (max-width: 330px) {
+    width: 320px;
+  }
+  background-color: lightgoldenrodyellow;
+  height: calc(100vh - 50px);
+  @media screen and (max-width: 1019px) {
+    height: 300px;
+  }
+  float: left;
+}
+
+div.main-region-list-container {
+  width: 30%;
+  display: inline-block;
+  background-color: indigo;
+  height: calc(100vh - 50px);
+  overflow-y: auto;
+}
+
+div.graph-container {
+  width: calc(100vw - 330px);
+  background-color: #D2FAFA;
+  height: calc(100vh - 50px);
+  overflow-y: scroll;
+  float: left;
+}
+
+@media screen and (max-width: 1020px) {
+  div.graph-container, div.main-map-container {
+    display: block;
+    float: none;
+    margin: auto;
+    margin-top: 50px;
+  }
+
+  div.graph-container {
+    width: 100%;
+    height: auto;
+    overflow-y: inherit;
+  }
+
+  div.main-wrapper {
+    background-color: lightgoldenrodyellow;
+  }
+}
+
+///////////////////////////////////////////////////////////////
+
+/* Scrollbar */
+.main-region-list-container::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar {
+  height: 16px;
+  overflow: visible;
+  width: 16px;
+}
+
+.main-region-list-container::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
+}
+
+::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
+}
+
+.main-region-list-container::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.main-region-list-container:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,.2);
+  box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.0666);
+}
+
+.main-region-list-container::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  background-color: transparent;
+  border: 0 solid transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  min-height: 28px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,.2);
+  background-clip: padding-box;
+  border: solid transparent;
+  border-width: 1px 1px 1px 6px;
+  min-height: 28px;
+  padding: 100px 0 0;
+  -webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
+  box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
+}
+
+.main-region-list-container::-webkit-scrollbar-track {
+  border: 0 solid transparent;
+  background-clip: padding-box;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-clip: padding-box;
+  border: solid transparent;
+  border-width: 0 0 0 4px;
+}
+
+///////////////////////////////////////////////////////////////
+
+/* Map */
+
+ul.county-map {
+  text-align: center;
+  background-color: rgba(0,0,0,0);
+  line-height: calc(100vh - 30px);
+  background-color: lightgoldenrodyellow;
+  overflow-y: hidden;
+  height: calc(100vh - 50px);
+  width: 330px;
+  @media screen and (max-width: 330px) {
+    width: 320px;
+  }
+
+  li {
+    font-size: 100%;
+    left: 95%;
+    -webkit-transition: unset;
+    transition: all 0.6s ease;
+
+    &.an, &.ar, &.fe, &.de, &.do, &.ty {
+      color: #c9c9a9 !important;
+    }
+
+    @media screen and (max-width: 1019px) {
+      top: -20px;
+    }
+
+  }
+}
+
+///////////////////////////////////////////////////////////////
+
+/* Region List */
+
+ul.region-list {
+  list-style: none;
+  width: 100%;
+  margin-left: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  li {
+    width: 300px;
+    height: 100px;
+    line-height: 100px;
+    margin-left: 30px;
+    text-align: center;
+
+    span {
+      line-height: 50px;
+    }
+
+    button {
+      width: 300px;
+      height: 100px;
+      background-color: white;
+      border: solid 2px black;
+      border-radius: 5px;
+      font-size: 30px;
+    }
+  }
+
+  li.county {
+    margin: 4px 4px 4px 60px;
+
+    button {
+      background-color: black;
+      color: white;
+    }
+  }
+
+}
+
+span.county-icon {
+  font-family: "countyiconregular";
+  padding-right: 10px;
+  font-size: 50px;
+}
+
+///////////////////////////////////////////////////////////////
