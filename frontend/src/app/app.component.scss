@@ -132,7 +132,7 @@ div.graph-container {
 ul.county-map {
   text-align: center;
   background-color: rgba(0,0,0,0);
-  line-height: calc(100vh - 30px);
+  line-height: calc(100vh - 30);
   background-color: lightgoldenrodyellow;
   overflow-y: hidden;
   height: calc(100vh - 50px);
@@ -152,7 +152,7 @@ ul.county-map {
     }
 
     @media screen and (max-width: 1019px) {
-      top: -20px;
+      top: -100px;
     }
 
   }

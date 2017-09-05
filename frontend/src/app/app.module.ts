@@ -9,6 +9,7 @@ import { ChartsComponent} from './charts.component';
 import { BarChartComponent} from './barChart.component';
 import { DynLineChartComponent } from './dynLineChart.component';
 import { GraphService } from './graphdata.service';
+import { PopChartComponent } from './popChart.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { GraphService } from './graphdata.service';
     ChartsComponent,
     BarChartComponent,
     DynLineChartComponent,
+    PopChartComponent,
   ],
   imports: [
     BrowserModule,

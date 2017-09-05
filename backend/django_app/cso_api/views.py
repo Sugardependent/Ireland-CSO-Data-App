@@ -30,11 +30,33 @@ class GraphPointsCompleteList(generics.RetrieveAPIView):
     queryset = Graph.objects.all()
     serializer_class = GraphPointsSerializer
 
-""" 
-class GraphPointsCompleteList(generics.ListAPIView):
+class GraphPointsRegionTypeGender(generics.ListAPIView):
     serializer_class = GraphPointsSerializer
 
     def get_queryset(self):
-        dataid = self.kwargs['graphid']
-        return Graph.objects.filter(data_id=dataid)
-"""
+        graphT = self.kwargs['graphname']
+        regionT = self.kwargs['regionname'].title()
+        genderT = self.kwargs['gender']
+        if (graphT == 'population'):
+            graphT = 'Population (Number)'
+        queryset = Graph.objects.filter(region_name=regionT).filter(graph_name=graphT).filter(gender=genderT)
+        return queryset
+
+class GraphPointsRegionType(generics.ListAPIView):
+    serializer_class = GraphPointsSerializer
+
+    def get_queryset(self):
+        graphT = self.kwargs['graphname']
+        regionT = self.kwargs['regionname'].title()
+        if (graphT == 'population'):
+            graphT = 'Population (Number)'
+        queryset = Graph.objects.filter(region_name=regionT).filter(graph_name=graphT)
+        return queryset
+
+class GraphPointsRegion(generics.ListAPIView):
+    serializer_class = GraphPointsSerializer
+
+    def get_queryset(self):
+        regionT = self.kwargs['regionname'].title()
+        queryset = Graph.objects.filter(region_name=regionT)
+        return queryset
