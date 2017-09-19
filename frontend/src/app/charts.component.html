@@ -1,4 +1,7 @@
-<app-pop-chart></app-pop-chart>
+<h1 class="region_title">{{regiont}}</h1>
+<app-pop-chart *ngIf="nonGardaRegion" [region]="regiont"></app-pop-chart>
 <br/>
 <br/>
+<!--
 <app-dyn-line-chart></app-dyn-line-chart>
+-->

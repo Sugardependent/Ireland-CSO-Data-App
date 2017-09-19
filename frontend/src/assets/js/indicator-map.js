@@ -199,7 +199,7 @@ window.onload = function() {
         }
 
       } else {
-        console.log("---color trig---");
+        //console.log("---color trig---");
         $(".indicator-map li").css('color', '#999');
         $(".indicator-map li." + current_t).css('color', '#009900');
       }

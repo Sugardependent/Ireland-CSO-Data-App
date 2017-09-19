@@ -1,3 +1,4 @@
+/*
 import { ViewChild, OnInit, Component } from '@angular/core';
 
 import { BaseChartDirective } from 'ng2-charts/ng2-charts';
@@ -102,3 +103,4 @@ export class BarChartComponent implements OnInit {
     })
   }
 }
+*/
