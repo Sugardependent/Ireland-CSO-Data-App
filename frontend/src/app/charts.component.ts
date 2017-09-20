@@ -15,10 +15,13 @@ export class ChartsComponent {
   regiont: string = "state";
   nonGardaRegion: boolean = true;
   
+  //  Subscribes to url changes to catch changes 
+  //  "region" parameter and update accordingly
   constructor(
     private route: ActivatedRoute,
     private location: Location
-  ) {
+  ) 
+  {
     location.subscribe(x => {
       this.getRegion()
     })
@@ -28,6 +31,7 @@ export class ChartsComponent {
     this.getRegion();
   }
 
+  //  Retrieves "region" url parameter
   public getRegion(): void {
     this.route.params.subscribe(params => {
       let regiontemp = params['regionname'];
@@ -40,22 +44,5 @@ export class ChartsComponent {
       }
     });
   }
-
-  /*
-  public getRegion(): void {
-    this.route.paramMap
-    .switchMap((params: ParamMap) => params.get('regionname'))
-    .bufferTime(100)
-    .subscribe(urlregion => {
-      if (urlregion.length != 0) {
-        this.regiont = urlregion.join('');
-        console.log(this.regiont);
-      } else if (urlregion.length == 0) {
-        console.log("no county");
-      }
-    });
-  }
-  */
-
 
 }

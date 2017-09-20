@@ -1,9 +1,10 @@
-h1.graphTitle {
+.graph-title {
     text-align: center;
     text-transform: capitalize;
+    padding-left: 20px;
 }
 
-div.bar-chart-container canvas {
+.bar-chart-container canvas {
     max-width: 850px;
     max-height: 450px;
     padding-right: 25px;
@@ -11,6 +12,6 @@ div.bar-chart-container canvas {
     margin: auto;
 }
 
-button.genderToggle {
+.genderToggle {
     margin-left: 40px;
 }

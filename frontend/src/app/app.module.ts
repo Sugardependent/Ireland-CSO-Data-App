@@ -7,10 +7,10 @@ import { AppComponent } from './app.component';
 
 import { ChartsModule } from 'ng2-charts';
 import { ChartsComponent} from './charts.component';
-//import { BarChartComponent} from './barChart.component';
 import { DynLineChartComponent } from './dynLineChart.component';
 import { GraphService } from './graphdata.service';
 import { PopChartComponent } from './popChart.component';
+import { HomeComponent } from './home.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -19,9 +19,9 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [
     AppComponent,
     ChartsComponent,
-    //BarChartComponent,
     DynLineChartComponent,
     PopChartComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

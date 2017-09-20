@@ -16,8 +16,8 @@ import { GraphService } from './graphdata.service';
 
 export class PopChartComponent implements OnInit {
 
-  //@Input() regionc: string;
-
+  //  "Region" parameter is retrieved from url parameter 
+  //  in "charts" component
   regionc: string;
 
   @Input()
@@ -27,11 +27,19 @@ export class PopChartComponent implements OnInit {
   }
   get region(): string { return this.regionc; }
   
-
   @ViewChild(BaseChartDirective) 
   public _chart: BaseChartDirective;
 
-
+  //  Bar Chart Settings and Vars
+  public barChartColors: string[] = [];
+  public barChartType: string = 'bar';
+  public barChartLegend: boolean = true;
+  public gender: number = 1;
+  public genderText: string = "both";
+  public genderTextShow: string = "Total";
+  public points: any[] = [];
+  public xvalues: number[] = [];
+  public yvalues: number[] = [];
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true,
@@ -44,43 +52,26 @@ export class PopChartComponent implements OnInit {
             beginAtZero: true
     }}]}
   };
-  public barChartLabels: string[] = ["1841","1851","1861","1871","1881","1891","1901","1911",
-                                     "1926","1936","1946","1951","1956","1961","1966","1971",
-                                     "1979","1981","1986","1991","1996","2002","2006","2011"];
-  public barChartColors: string[] = [];
   public barChartColorSettings: Array<any> = [
     { 
       backgroundColor: this.barChartColors
     }
   ]
-  public barChartType: string = 'bar';
-  public barChartLegend: boolean = true;
-  public gender: number = 1;
-  public genderText: string = "both";
-  public points: any[] = [];
-  public xvalues: number[] = [];
-  public yvalues: number[] = [];
-  public genderTextShow: string = "Total";
+  public barChartLabels: string[] = ["1841","1851","1861","1871","1881","1891","1901","1911",
+                                     "1926","1936","1946","1951","1956","1961","1966","1971",
+                                     "1979","1981","1986","1991","1996","2002","2006","2011"];
   public barChartData: any[] = [
-    {data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], labels: this.barChartLabels, backgroundColor: this.barChartColors }
+    {data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], labels: this.barChartLabels }
   ];
 
   constructor(private graphService: GraphService) { }
 
+  //  Initializes color array 
   ngOnInit() {
-    //console.log(this.region);
     this.updateColorArray("#77dd77");
-    this.LoadChart();
   }
 
-  // events
-  public chartClicked(e: any): void {
-    console.log(e);
-  }
-  public chartHovered(e: any): void {
-    console.log(e);
-  }
-
+  //  Changes Gender Data and updates chart
   public GenderButton(): void {
     let k = 0;
     if (this.gender == 1) {
@@ -102,6 +93,8 @@ export class PopChartComponent implements OnInit {
     this.LoadChart();
   }
 
+  //  Reloads chart with current "region" and "gender" 
+  //  for population data
   public LoadChart(): void {
     this.graphService
     .get(this.regionc, 'population', this.genderText)
@@ -116,13 +109,14 @@ export class PopChartComponent implements OnInit {
         this.yvalues.push(x.y_value);
       }
       this.barChartData = [
-        { labels: this.barChartLabels, backgroundColor: this.barChartColors, data: this.yvalues }
+        { labels: this.barChartLabels, data: this.yvalues }
       ];
       this._chart.chart.update();
     }, 
     error => console.log("Could not load chart data"));
   }
 
+  //  Updates bar chart color array to new color
   public updateColorArray(colorValue: string): void {
     let i = 0;
     for (i = 0; i < 24; i++) {

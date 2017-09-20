@@ -1,0 +1,20 @@
+div.homeSection {
+  margin: 20px;
+  padding: 30px;
+
+  .listheadingHome {
+    text-decoration: underline;
+  }
+
+  .subheadingHome {
+    font-weight: bold;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+}
