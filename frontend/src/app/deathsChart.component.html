@@ -1,0 +1,16 @@
+<div class="bar-chart-container">
+        <h3 class="graph-title">Deaths {{genderTextShow}}</h3>
+        <div style="display: block">
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [colors]="barChartColorSettings"
+                  [chartType]="barChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+        <button class="genderToggle" (click)="GenderButton()">Gender Profile</button>
+      </div>
+      

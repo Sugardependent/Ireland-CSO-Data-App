@@ -4,10 +4,12 @@ from cso_api import views
 
 urlpatterns = [
     url(r'^graphs/$', views.GraphList.as_view()),
+    url(r'^graphs/list/(?P<regionname>.+)', views.GraphRegionList.as_view()),
     url(r'^graphs/(?P<pk>[0-9]+)/$', views.GraphDetail.as_view()),
     url(r'^graphs/(?P<graphid>.+)/points', views.GraphPointsList.as_view()),
     url(r'^graphs/(?P<pk>.+)/complete', views.GraphPointsCompleteList.as_view()),
     url(r'^graphs/prop/(?P<regionname>.+)/(?P<graphname>.+)/(?P<gender>.+)', views.GraphPointsRegionTypeGender.as_view()),
+    url(r'^graphs/birth/(?P<regionname>.+)/(?P<graphtype>.+)', views.GraphPointsBirth.as_view()),
     url(r'^graphs/prop/(?P<regionname>.+)/(?P<graphname>.+)', views.GraphPointsRegionType.as_view()),
     url(r'^graphs/prop/(?P<regionname>.+)', views.GraphPointsRegion.as_view()),
     url(r'^points/$', views.Data_PointList.as_view()),

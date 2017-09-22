@@ -9,12 +9,12 @@ import { GraphService } from './graphdata.service';
 
 
 @Component({
-  selector: 'app-pop-chart',
-  templateUrl: './popChart.component.html',
+  selector: 'app-deaths-chart',
+  templateUrl: './deathsChart.component.html',
   styleUrls: ['./barChart.component.scss']
 })
 
-export class PopChartComponent implements OnInit {
+export class DeathsChartComponent implements OnInit {
 
   //  "Region" parameter is retrieved from url parameter 
   //  in "charts" component
@@ -57,11 +57,11 @@ export class PopChartComponent implements OnInit {
       backgroundColor: this.barChartColors
     }
   ]
-  public barChartLabels: string[] = ["1841","1851","1861","1871","1881","1891","1901","1911",
-                                     "1926","1936","1946","1951","1956","1961","1966","1971",
-                                     "1979","1981","1986","1991","1996","2002","2006","2011"];
+  public barChartLabels: string[] = ["1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999",
+                                     "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010",
+                                     "2011", "2012", "2013", "2014", "2015", "2016"];
   public barChartData: any[] = [
-    {data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], labels: this.barChartLabels }
+    {data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], labels: this.barChartLabels }
   ];
 
   constructor(private graphService: GraphService) { }
@@ -97,7 +97,7 @@ export class PopChartComponent implements OnInit {
   //  for population data
   public LoadChart(): void {
     this.graphService
-    .get(this.regionc, 'population', this.genderText)
+    .get(this.regionc, 'deaths', this.genderText)
     .subscribe(graphdata => {
       this.xvalues = [];
       this.yvalues = [];
@@ -119,7 +119,7 @@ export class PopChartComponent implements OnInit {
   //  Updates bar chart color array to new color
   public updateColorArray(colorValue: string): void {
     let i = 0;
-    for (i = 0; i < 24; i++) {
+    for (i = 0; i < 28; i++) {
       this.barChartColors[i] = colorValue;
     }
   }

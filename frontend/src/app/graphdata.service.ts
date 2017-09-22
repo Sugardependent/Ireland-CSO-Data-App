@@ -45,6 +45,33 @@ export class GraphService {
     return this._graphData;
   }
 
+  getbirths(regiont: string, grapht: string): Observable<GraphData> {
+    
+        let gendert = 'both';
+        let idString = regiont + grapht + gendert;
+        console.log(idString);
+        
+        //  Checks for cached data and restricts to 20 cached graph values
+        if(!this.graphDataCached.has(idString)) {
+          if(this.graphDataCached.size >= 6) {
+            let firstCacheIter = this.graphDataCached.keys();
+            this.graphDataCached.delete(firstCacheIter.next().value);
+          }
+          let graphData$ = this.http
+            .get(`${this.baseUrl}/birth/${regiont}/${grapht}?format=json`)
+            .map(mapGraph)
+            .publishReplay(5)
+            .refCount();
+            
+          this.graphDataCached.set(idString, graphData$);
+          this._graphData = graphData$;
+        } else {
+          this._graphData = this.graphDataCached.get(idString);
+        }
+    
+        return this._graphData;
+      }
+
 }
 
 //  Maps the JSON Data

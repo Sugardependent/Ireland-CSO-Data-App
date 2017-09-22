@@ -2,6 +2,31 @@
 <app-pop-chart *ngIf="nonGardaRegion" [region]="regiont"></app-pop-chart>
 <br/>
 <br/>
+<app-deaths-chart *ngIf="deathsTrig" [region]="regiont"></app-deaths-chart>
+<br/>
+<br/>
+<app-births-chart *ngIf="nonGardaRegion && birthsTrig"  [region]="regiont"></app-births-chart>
+
+<app-births-chart *ngIf="nonGardaRegion && dubTrig" [region]="dub1"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && dubTrig" [region]="dub2"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && dubTrig" [region]="dub3"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && dubTrig" [region]="dub4"></app-births-chart>
+
+<app-births-chart *ngIf="nonGardaRegion && corkTrig" [region]="cork1"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && corkTrig" [region]="cork2"></app-births-chart>
+
+<app-births-chart *ngIf="nonGardaRegion && lmkTrig" [region]="lmk1"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && lmkTrig" [region]="lmk2"></app-births-chart>
+
+<app-births-chart *ngIf="nonGardaRegion && tipTrig" [region]="tip1"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && tipTrig" [region]="tip2"></app-births-chart>
+
+<app-births-chart *ngIf="nonGardaRegion && wfdTrig" [region]="wfd1"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && wfdTrig" [region]="wfd2"></app-births-chart>
+
+
+<app-births-chart *ngIf="nonGardaRegion && gwyTrig" [region]="gwy1"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && gwyTrig" [region]="gwy2"></app-births-chart>
 <!--
 <app-dyn-line-chart></app-dyn-line-chart>
 -->

@@ -154,7 +154,7 @@ try:
         region = a.region
         commandcreate = "INSERT INTO graph(region_name, graph_name, gender) values(%s, 'Population (Number)', %s )"
         commandcreatevars = (region, gender)
-        commandfind = "SELECT data_id FROM graph WHERE region_name=%s AND gender=%s"
+        commandfind = "SELECT data_id FROM graph WHERE region_name=%s AND gender=%s AND graph_name='Population (Number)'"
         cursor.execute(commandcreate, commandcreatevars)
         cursor.execute(commandfind, commandcreatevars)
         data_idVar = cursor.fetchone()
@@ -166,9 +166,10 @@ try:
 
     conn.commit()
 
-    cursor.execute("""SELECT * FROM graph""")
-    rows = cursor.fetchall()
-    print(rows)
+
+#    cursor.execute("""SELECT * FROM graph""")
+#    rows = cursor.fetchall()
+#    print(rows)
 except Exception as e:
     print("Issues Connecting: Exception Thrown")
     print(e)

@@ -9,12 +9,12 @@ import { GraphService } from './graphdata.service';
 
 
 @Component({
-  selector: 'app-pop-chart',
-  templateUrl: './popChart.component.html',
+  selector: 'app-births-chart',
+  templateUrl: './birthsChart.component.html',
   styleUrls: ['./barChart.component.scss']
 })
 
-export class PopChartComponent implements OnInit {
+export class BirthsChartComponent implements OnInit {
 
   //  "Region" parameter is retrieved from url parameter 
   //  in "charts" component
@@ -36,7 +36,9 @@ export class PopChartComponent implements OnInit {
   public barChartLegend: boolean = true;
   public gender: number = 1;
   public genderText: string = "both";
-  public genderTextShow: string = "Total";
+  public graphType: number = 1;
+  public graphText: string = "births-all";
+  public graphTextShow: string = "All Births (Number)";
   public points: any[] = [];
   public xvalues: number[] = [];
   public yvalues: number[] = [];
@@ -57,39 +59,70 @@ export class PopChartComponent implements OnInit {
       backgroundColor: this.barChartColors
     }
   ]
-  public barChartLabels: string[] = ["1841","1851","1861","1871","1881","1891","1901","1911",
-                                     "1926","1936","1946","1951","1956","1961","1966","1971",
-                                     "1979","1981","1986","1991","1996","2002","2006","2011"];
+  public barChartLabels: string[] = [
+      "1985","1986","1987","1988","1989","1990","1991","1992","1993","1994","1995","1996","1997","1998",
+      "1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012",
+      "2013","2014","2015","2016"
+  ];
   public barChartData: any[] = [
-    {data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], labels: this.barChartLabels }
+    {data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], labels: this.barChartLabels }
   ];
 
   constructor(private graphService: GraphService) { }
 
   //  Initializes color array 
   ngOnInit() {
-    this.updateColorArray("#77dd77");
+    this.updateColorArray("#ffd1dc");
   }
 
-  //  Changes Gender Data and updates chart
-  public GenderButton(): void {
+  //  Changes Graph Data and updates chart
+  public GraphTypeButton(graphtype: string): void {
     let k = 0;
-    if (this.gender == 1) {
-      this.gender = 2;
-      this.genderText = "male";
-      this.genderTextShow = "Male";
-      this.updateColorArray("#779ecb"); //Pastel Blue
-    } else if (this.gender == 2) {
-      this.gender = 3;
-      this.genderText = "female";
-      this.genderTextShow = "Female";
-      this.updateColorArray("#ffd1dc"); //Pastel Pink
-    } else if (this.gender == 3) {
-      this.gender = 1;
-      this.genderText = "both";
-      this.genderTextShow = "Total";
-      this.updateColorArray("#77dd77"); //Pastel Green
+
+    switch (this.graphType) {
+        case 1: {
+            this.graphType = 2;
+            this.graphText = "first-births";
+            this.graphTextShow = "First Births (Number)";
+            break;
+        }
+
+        case 2: {
+            this.graphType = 3;
+            this.graphText = "births-wm";
+            this.graphTextShow = "Births within Marriage (Number)";
+            break;
+        }
+
+        case 3: {
+            this.graphType = 4;
+            this.graphText = "births-om";
+            this.graphTextShow = "Births outside Marriage (Number)";
+            break;
+        }
+
+        case 4: {
+            this.graphType = 5;
+            this.graphText = "mother-average-age";
+            this.graphTextShow = "Average Age of Mother (Years)";
+            break;
+        }
+
+        case 5: {
+            this.graphType = 6;
+            this.graphText = "ft-mother-average-age";
+            this.graphTextShow = "Average Age of First Time Mother (Years)";
+            break;
+        }
+        
+        case 6: {
+            this.graphType = 1;
+            this.graphText = "births-all";
+            this.graphTextShow = "All Births (Number)";
+            break;
+        }
     }
+
     this.LoadChart();
   }
 
@@ -97,7 +130,7 @@ export class PopChartComponent implements OnInit {
   //  for population data
   public LoadChart(): void {
     this.graphService
-    .get(this.regionc, 'population', this.genderText)
+    .getbirths(this.regionc, this.graphText)
     .subscribe(graphdata => {
       this.xvalues = [];
       this.yvalues = [];
@@ -113,13 +146,13 @@ export class PopChartComponent implements OnInit {
       ];
       this._chart.chart.update();
     }, 
-    error => console.log("Could not load chart data"));
+    error => console.log("Could not load birth chart data"));
   }
 
   //  Updates bar chart color array to new color
   public updateColorArray(colorValue: string): void {
     let i = 0;
-    for (i = 0; i < 24; i++) {
+    for (i = 0; i < 32; i++) {
       this.barChartColors[i] = colorValue;
     }
   }
