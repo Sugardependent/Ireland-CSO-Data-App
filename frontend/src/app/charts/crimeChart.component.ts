@@ -4,8 +4,8 @@ import { BaseChartDirective } from "ng2-charts/ng2-charts";
 
 import "rxjs/add/operator/map";
 
-import { GraphData } from "./graphdata";
-import { GraphService } from "./graphdata.service";
+import { GraphData } from "../graphdata";
+import { GraphService } from "../graphdata.service";
 
 @Component({
   selector: "app-crime-chart",
@@ -174,7 +174,7 @@ export class CrimeChartComponent implements OnInit {
 
   //  Initializes color array
   ngOnInit() {
-    this.updateColorArray("#ffd1dc");
+    this.updateColorArray("#3182bd"); // Blue
     this.setGraphs();
   }
 
@@ -200,7 +200,6 @@ export class CrimeChartComponent implements OnInit {
     this.graphType = this.minKey;
     this.graphText = this.strgraphkeys[this.graphType];
     this.graphTextShow = this.strgraphs[this.graphText];
-
   }
 
   //  Changes Graph and updates chart

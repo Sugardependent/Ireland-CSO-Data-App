@@ -7,12 +7,11 @@ import { AppComponent } from './app.component';
 
 import { ChartsModule } from 'ng2-charts';
 import { ChartsComponent} from './charts.component';
-import { DynLineChartComponent } from './dynLineChart.component';
 import { GraphService } from './graphdata.service';
-import { PopChartComponent } from './popChart.component';
-import { DeathsChartComponent } from './deathsChart.component';
-import { BirthsChartComponent } from './birthsChart.component';
-import { CrimeChartComponent } from './crimeChart.component';
+import { PopChartComponent } from './charts/popChart.component';
+import { DeathsChartComponent } from './charts/deathsChart.component';
+import { BirthsChartComponent } from './charts/birthsChart.component';
+import { CrimeChartComponent } from './charts/crimeChart.component';
 import { HomeComponent } from './home.component';
 
 
@@ -23,7 +22,6 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [
     AppComponent,
     ChartsComponent,
-    DynLineChartComponent,
     PopChartComponent,
     HomeComponent,
     DeathsChartComponent,

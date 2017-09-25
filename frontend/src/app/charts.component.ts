@@ -12,26 +12,15 @@ import "rxjs/add/operator/switchMap";
 })
 export class ChartsComponent {
   regiont: string = "state";
+
+  // Triggers for different graph types
   nonGardaRegion: boolean = true;
   deathsTrig: boolean = false;
   birthsTrig: boolean = false;
   birthsCheckRegions: string[] = ["leinster", "ulster", "munster", "connacht"];
 
-  dub1: string = "Dublin City";
-  dub2: string = "Fingal";
-  dub3: string = "Dun Laoghaire Rathdown";
-  dub4: string = "South Dublin";
-  cork1: string = "Cork City";
-  cork2: string = "Cork County";
-  lmk1: string = "Limerick City";
-  lmk2: string = "Limerick County";
-  tip1: string = "North Tipperary";
-  tip2: string = "South Tipperary";
-  wfd1: string = "Waterford City";
-  wfd2: string = "Waterford County";
-  gwy1: string = "Galway City";
-  gwy2: string = "Galway County";
-
+  // In cases of Birth Data, checks for special cases of:
+  // Dublin, Cork, Limerick, Tipperary, Waterford, Galway
   dubTrig: boolean = false;
   corkTrig: boolean = false;
   lmkTrig: boolean = false;
@@ -39,6 +28,7 @@ export class ChartsComponent {
   wfdTrig: boolean = false;
   gwyTrig: boolean = false;
 
+  // Checks if garda regions are selected, DB region names
   public strregions = {
     "garda-region-eastern":"eastern-region",
     "garda-region-dublin-metro":"dublin-region",
@@ -57,10 +47,12 @@ export class ChartsComponent {
   }
 
   ngOnInit(): void {
+    // Gets region to show on component initialization
     this.getRegion();
   }
 
-  //  Retrieves "region" url parameter
+  //  Retrieves "region" url parameter and checks for 
+  //  special cases where certain components are hidden/shown
   public getRegion(): void {
     this.route.params.subscribe(params => {
       this.dubTrig = false;
@@ -87,7 +79,6 @@ export class ChartsComponent {
             this.dubTrig = true;
             break;
           }
-
           case "cork": {
             this.corkTrig = true;
             break;

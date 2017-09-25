@@ -1,8 +1,0 @@
-<div class="bar-chart-container">
-    <h3 class="graph-title">{{region}}: {{graphTextShow}}</h3>
-    <div style="display: block">
-        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
-            [colors]="barChartColorSettings" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
-    </div>
-    <button class="genderToggle" (click)="GraphTypeButton()">Change Graph</button>
-</div>

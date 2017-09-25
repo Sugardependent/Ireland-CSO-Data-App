@@ -1,59 +1,76 @@
-<div class="loading">
-    <h1> Loading Data </h1>
+<div class="descSection">
+    <h1 class="region-title">{{regiont}}</h1>
+    <p class="subheadingHome">Available data for this region:</p>
+    <ul class="smaller">
+        <li *ngIf="nonGardaRegion">Population Total/Male/Female (Number)</li>
+        <li *ngIf="deathsTrig">Deaths (Number)</li>
+        <li *ngIf="birthsTrig || dubTrig || corkTrig || lmkTrig || tipTrig || wfdTrig || gwyTrig">All Births (Number)</li>
+        <li *ngIf="birthsTrig || dubTrig || corkTrig || lmkTrig || tipTrig || wfdTrig || gwyTrig">First Births (Number)</li>
+        <li *ngIf="birthsTrig || dubTrig || corkTrig || lmkTrig || tipTrig || wfdTrig || gwyTrig">Births within Marriage (Number)</li>
+        <li *ngIf="birthsTrig || dubTrig || corkTrig || lmkTrig || tipTrig || wfdTrig || gwyTrig">Births outside Marriage (Number)</li>
+        <li *ngIf="birthsTrig || dubTrig || corkTrig || lmkTrig || tipTrig || wfdTrig || gwyTrig">Average Age of Mother (Number)</li>
+        <li *ngIf="birthsTrig || dubTrig || corkTrig || lmkTrig || tipTrig || wfdTrig || gwyTrig">Average Age of First Time Mother (Number)</li>
+        <li *ngIf="nonGardaRegion == false">Homocide Offences Stats</li>
+        <li *ngIf="nonGardaRegion == false">Sexual Offences Stats</li>
+        <li *ngIf="nonGardaRegion == false">Attempts/Threats Offences Stats</li>
+        <li *ngIf="nonGardaRegion == false">Dangerous or Negligent Acts Stats</li>
+        <li *ngIf="nonGardaRegion == false">Kidnapping and Related Offences Stats</li>
+        <li *ngIf="nonGardaRegion == false">Robbery, Extortion and Hijacking Offences Stats</li>
+        <li *ngIf="nonGardaRegion == false">Burglary Ofences Stats</li>
+        <li *ngIf="nonGardaRegion == false">Theft Offences Stats</li>
+        <li *ngIf="nonGardaRegion == false">Fraud Offences Stats</li>
+        <li *ngIf="nonGardaRegion == false">Drug Offences Stats</li>
+        <li *ngIf="nonGardaRegion == false">Weapons and Explosives Offences Stats</li>
+        <li *ngIf="nonGardaRegion == false">Damage to Property/Environment Stats</li>
+        <li *ngIf="nonGardaRegion == false">Public Order Offences Stats</li>
+        <li *ngIf="nonGardaRegion == false">Offences against Government/Justice Procedures and Organised Crime Stats</li>
+    </ul>
 </div>
 
-<h1 class="region-title">{{regiont}}</h1>
+<!--    Population and Deaths Charts    -->
 <app-pop-chart *ngIf="nonGardaRegion" [region]="regiont"></app-pop-chart>
-<br/>
-<br/>
 <app-deaths-chart *ngIf="deathsTrig" [region]="regiont"></app-deaths-chart>
-<br/>
-<br/>
+<!--    Population and Deaths Charts END   -->
 
 <!--   Birth Charts   -->
-<app-births-chart *ngIf="nonGardaRegion && birthsTrig"  [region]="regiont"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && birthsTrig" [region]="regiont"></app-births-chart>
 
-<app-births-chart *ngIf="nonGardaRegion && dubTrig" [region]="dub1"></app-births-chart>
-<app-births-chart *ngIf="nonGardaRegion && dubTrig" [region]="dub2"></app-births-chart>
-<app-births-chart *ngIf="nonGardaRegion && dubTrig" [region]="dub3"></app-births-chart>
-<app-births-chart *ngIf="nonGardaRegion && dubTrig" [region]="dub4"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && dubTrig" [region]="'dublin-city'"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && dubTrig" [region]="'fingal'"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && dubTrig" [region]="'dun laoghaire rathdown'"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && dubTrig" [region]="'south dublin'"></app-births-chart>
 
-<app-births-chart *ngIf="nonGardaRegion && corkTrig" [region]="cork1"></app-births-chart>
-<app-births-chart *ngIf="nonGardaRegion && corkTrig" [region]="cork2"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && corkTrig" [region]="'cork city'"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && corkTrig" [region]="'cork county'"></app-births-chart>
 
-<app-births-chart *ngIf="nonGardaRegion && lmkTrig" [region]="lmk1"></app-births-chart>
-<app-births-chart *ngIf="nonGardaRegion && lmkTrig" [region]="lmk2"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && lmkTrig" [region]="'limerick city'"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && lmkTrig" [region]="'limerick county'"></app-births-chart>
 
-<app-births-chart *ngIf="nonGardaRegion && tipTrig" [region]="tip1"></app-births-chart>
-<app-births-chart *ngIf="nonGardaRegion && tipTrig" [region]="tip2"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && tipTrig" [region]="'north tipperary'"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && tipTrig" [region]="'south tipperary'"></app-births-chart>
 
-<app-births-chart *ngIf="nonGardaRegion && wfdTrig" [region]="wfd1"></app-births-chart>
-<app-births-chart *ngIf="nonGardaRegion && wfdTrig" [region]="wfd2"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && wfdTrig" [region]="'waterford city'"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && wfdTrig" [region]="'waterford county'"></app-births-chart>
 
 
-<app-births-chart *ngIf="nonGardaRegion && gwyTrig" [region]="gwy1"></app-births-chart>
-<app-births-chart *ngIf="nonGardaRegion && gwyTrig" [region]="gwy2"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && gwyTrig" [region]="'galway city'"></app-births-chart>
+<app-births-chart *ngIf="nonGardaRegion && gwyTrig" [region]="'galway county'"></app-births-chart>
 <!--   Birth Charts END  -->
 
 
 <!--   Crime Charts   -->
-
-<app-crime-chart *ngIf="nonGardaRegion == false"  [region]="regiont" [crimetype]="'1'" ></app-crime-chart>
-<app-crime-chart *ngIf="nonGardaRegion == false"  [region]="regiont" [crimetype]="'2'" ></app-crime-chart>
-<app-crime-chart *ngIf="nonGardaRegion == false"  [region]="regiont" [crimetype]="'3'" ></app-crime-chart>
-<app-crime-chart *ngIf="nonGardaRegion == false"  [region]="regiont" [crimetype]="'4'" ></app-crime-chart>
-<app-crime-chart *ngIf="nonGardaRegion == false"  [region]="regiont" [crimetype]="'5'" ></app-crime-chart>
-<app-crime-chart *ngIf="nonGardaRegion == false"  [region]="regiont" [crimetype]="'6'" ></app-crime-chart>
-<app-crime-chart *ngIf="nonGardaRegion == false"  [region]="regiont" [crimetype]="'7'" ></app-crime-chart>
-<app-crime-chart *ngIf="nonGardaRegion == false"  [region]="regiont" [crimetype]="'8'" ></app-crime-chart>
-<app-crime-chart *ngIf="nonGardaRegion == false"  [region]="regiont" [crimetype]="'9'" ></app-crime-chart>
-<app-crime-chart *ngIf="nonGardaRegion == false"  [region]="regiont" [crimetype]="'10'" ></app-crime-chart>
-<app-crime-chart *ngIf="nonGardaRegion == false"  [region]="regiont" [crimetype]="'11'" ></app-crime-chart>
-<app-crime-chart *ngIf="nonGardaRegion == false"  [region]="regiont" [crimetype]="'12'" ></app-crime-chart>
-<app-crime-chart *ngIf="nonGardaRegion == false"  [region]="regiont" [crimetype]="'13'" ></app-crime-chart>
-<app-crime-chart *ngIf="nonGardaRegion == false"  [region]="regiont" [crimetype]="'15'" ></app-crime-chart>
-
-
-<!--
-<app-dyn-line-chart></app-dyn-line-chart>
--->
+<app-crime-chart *ngIf="nonGardaRegion == false" [region]="regiont" [crimetype]="'1'"></app-crime-chart>
+<app-crime-chart *ngIf="nonGardaRegion == false" [region]="regiont" [crimetype]="'2'"></app-crime-chart>
+<app-crime-chart *ngIf="nonGardaRegion == false" [region]="regiont" [crimetype]="'3'"></app-crime-chart>
+<app-crime-chart *ngIf="nonGardaRegion == false" [region]="regiont" [crimetype]="'4'"></app-crime-chart>
+<app-crime-chart *ngIf="nonGardaRegion == false" [region]="regiont" [crimetype]="'5'"></app-crime-chart>
+<app-crime-chart *ngIf="nonGardaRegion == false" [region]="regiont" [crimetype]="'6'"></app-crime-chart>
+<app-crime-chart *ngIf="nonGardaRegion == false" [region]="regiont" [crimetype]="'7'"></app-crime-chart>
+<app-crime-chart *ngIf="nonGardaRegion == false" [region]="regiont" [crimetype]="'8'"></app-crime-chart>
+<app-crime-chart *ngIf="nonGardaRegion == false" [region]="regiont" [crimetype]="'9'"></app-crime-chart>
+<app-crime-chart *ngIf="nonGardaRegion == false" [region]="regiont" [crimetype]="'10'"></app-crime-chart>
+<app-crime-chart *ngIf="nonGardaRegion == false" [region]="regiont" [crimetype]="'11'"></app-crime-chart>
+<app-crime-chart *ngIf="nonGardaRegion == false" [region]="regiont" [crimetype]="'12'"></app-crime-chart>
+<app-crime-chart *ngIf="nonGardaRegion == false" [region]="regiont" [crimetype]="'13'"></app-crime-chart>
+<app-crime-chart *ngIf="nonGardaRegion == false" [region]="regiont" [crimetype]="'15'"></app-crime-chart>
+<!--   Crime Charts END   -->

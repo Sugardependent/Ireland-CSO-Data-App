@@ -1,7 +1,14 @@
+<hr>
 <div class="bar-chart-container">
-  <h3 class="graph-title">{{region}}: Deaths (Number)</h3>
+  <h4 class="graph-title">{{region}}: <span class="graphSubTitle">Population [{{genderTextShow}}]</span></h4>
   <div style="display: block">
     <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
       [colors]="barChartColorSettings" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
   </div>
+  <button class="buttonToggle" (click)="GenderButton()">Cycle Graphs</button>
+  <ul class="smaller">
+    <li>Population [Total]</li>
+    <li>Population [Male]</li>
+    <li>Population [Female]</li>
+  </ul>
 </div>

@@ -1,0 +1,50 @@
+.graph-title {
+  text-align: left;
+  text-transform: capitalize;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 50px;
+}
+
+.bar-chart-container canvas {
+  max-width: 850px;
+  max-height: 450px;
+  padding-right: 25px;
+  padding-left: 25px;
+  margin: auto;
+}
+
+.buttonToggle {
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+
+.loadingBarChart {
+  color: #000;
+}
+
+.graphSubTitle {
+  display: inline-block;
+}
+
+h3 small {
+  color: #333;
+}
+
+ul {
+  padding-left: 30px;
+  padding-right: 20px;
+  list-style-type: disc;
+  padding-bottom: 50px;
+
+  &.smaller {
+    @media screen and (max-width: 450px) {
+      font-size: 90%;
+    }
+  }
+}
+
+hr {
+  margin: 20px;
+  border-top: 1px solid #333;
+}

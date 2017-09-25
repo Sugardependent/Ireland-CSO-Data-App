@@ -31,10 +31,13 @@ div.main-region-list-container {
 
 div.graph-container {
   width: calc(100vw - 330px);
-  background-color: #D2FAFA;
+  background-color: #D8D8D8;
   height: calc(100vh - 50px);
   overflow-y: scroll;
   float: left;
+  -webkit-box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.45);
+  -moz-box-shadow:    0px -4px 3px rgba(50, 50, 50, 0.45);
+  box-shadow:         0px -4px 3px rgba(50, 50, 50, 0.45);
 }
 
 @media screen and (max-width: 1020px) {
@@ -155,7 +158,62 @@ ul.county-map {
       top: -100px;
       margin-top: 80px;
     }
+    @media screen and (min-width: 1020px) {
+      top: 20%;
+    }
 
+  }
+}
+
+
+///////////////////////////////////////////////////////////////
+
+/* Bootstrap Hamburger Menu Breakpoint Redefined */
+
+@media (max-width: 850px) {
+  .navbar-header {
+      float: none;
+  }
+  .navbar-left,.navbar-right {
+      float: none !important;
+  }
+  .navbar-toggle {
+      display: block;
+  }
+  .navbar-collapse {
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+  }
+  .navbar-collapse.collapse {
+      display: none!important;
+  }
+  .navbar-nav {
+      float: none!important;
+      margin-top: 7.5px;
+  }
+  .navbar-nav>li {
+      float: none;
+  }
+  .navbar-nav>li>a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+  .collapse.in{
+      display:block !important;
+  }
+ .navbar-nav .open .dropdown-menu {
+     position: static;
+     float: none;
+     width: auto;
+     margin-top: 0;
+     background-color: transparent;
+     border: 0;
+     -webkit-box-shadow: none;
+     box-shadow: none;
   }
 }
 

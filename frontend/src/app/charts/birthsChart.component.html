@@ -1,0 +1,17 @@
+<hr>
+<div class="bar-chart-container">
+    <h4 class="graph-title">{{region}}: <span class="graphSubTitle">{{graphTextShow}}</span></h4>
+    <div style="display: block">
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+            [colors]="barChartColorSettings" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+    </div>
+    <button class="buttonToggle" (click)="GraphTypeButton()">Cycle Graphs</button>
+    <ul class="smaller">
+        <li>All Births (Number)</li>
+        <li>First Births (Number)</li>
+        <li>Births within Marriage (Number)</li>
+        <li>Births outside Marriage (Number)</li>
+        <li>Average Age of Mother (Number)</li>
+        <li>Average Age of First Time Mother (Number)</li>
+    </ul>
+</div>

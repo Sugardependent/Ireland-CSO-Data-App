@@ -4,8 +4,8 @@ import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 
 import 'rxjs/add/operator/map';
 
-import { GraphData } from './graphdata';
-import { GraphService } from './graphdata.service';
+import { GraphData } from '../graphdata';
+import { GraphService } from '../graphdata.service';
 
 
 @Component({
@@ -72,13 +72,11 @@ export class BirthsChartComponent implements OnInit {
 
   //  Initializes color array 
   ngOnInit() {
-    this.updateColorArray("#ffd1dc");
+    this.updateColorArray("#fc9272"); // Pink
   }
 
   //  Changes Graph Data and updates chart
   public GraphTypeButton(graphtype: string): void {
-    let k = 0;
-
     switch (this.graphType) {
         case 1: {
             this.graphType = 2;
