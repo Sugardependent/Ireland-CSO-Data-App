@@ -35,7 +35,7 @@ export class DeathsChartComponent implements OnInit {
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
   public gender: number = 1;
-  public genderText: string = "both";
+  public genderText: string = "female";
   public genderTextShow: string = "Total";
   public points: any[] = [];
   public xvalues: number[] = [];
@@ -69,28 +69,6 @@ export class DeathsChartComponent implements OnInit {
   //  Initializes color array 
   ngOnInit() {
     this.updateColorArray("#77dd77");
-  }
-
-  //  Changes Gender Data and updates chart
-  public GenderButton(): void {
-    let k = 0;
-    if (this.gender == 1) {
-      this.gender = 2;
-      this.genderText = "male";
-      this.genderTextShow = "Male";
-      this.updateColorArray("#779ecb"); //Pastel Blue
-    } else if (this.gender == 2) {
-      this.gender = 3;
-      this.genderText = "female";
-      this.genderTextShow = "Female";
-      this.updateColorArray("#ffd1dc"); //Pastel Pink
-    } else if (this.gender == 3) {
-      this.gender = 1;
-      this.genderText = "both";
-      this.genderTextShow = "Total";
-      this.updateColorArray("#77dd77"); //Pastel Green
-    }
-    this.LoadChart();
   }
 
   //  Reloads chart with current "region" and "gender" 

@@ -1,5 +1,5 @@
 .graph-title {
-    text-align: center;
+    text-align: left;
     text-transform: capitalize;
     padding-left: 20px;
 }
@@ -12,6 +12,11 @@
     margin: auto;
 }
 
-.genderToggle {
+.buttonToggle {
     margin-left: 40px;
+    margin-bottom: 100px;
+}
+
+.loadingBarChart {
+    text-align: right;
 }

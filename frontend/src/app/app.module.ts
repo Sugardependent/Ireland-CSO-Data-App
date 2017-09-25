@@ -12,7 +12,9 @@ import { GraphService } from './graphdata.service';
 import { PopChartComponent } from './popChart.component';
 import { DeathsChartComponent } from './deathsChart.component';
 import { BirthsChartComponent } from './birthsChart.component';
+import { CrimeChartComponent } from './crimeChart.component';
 import { HomeComponent } from './home.component';
+
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -26,6 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     HomeComponent,
     DeathsChartComponent,
     BirthsChartComponent,
+    CrimeChartComponent,
   ],
   imports: [
     BrowserModule,

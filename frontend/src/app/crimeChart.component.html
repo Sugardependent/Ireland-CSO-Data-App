@@ -1,7 +1,8 @@
 <div class="bar-chart-container">
-  <h3 class="graph-title">{{region}}: Deaths (Number)</h3>
+  <h3 class="graph-title">Crimes: <small>{{graphTextShow}}<span class="loadingBarChart" *ngIf="loadingtrig">loading...</span></small></h3>
   <div style="display: block">
     <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
       [colors]="barChartColorSettings" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
   </div>
+  <button class="buttonToggle" (click)="GraphTypeButton()">Graph Change</button>
 </div>

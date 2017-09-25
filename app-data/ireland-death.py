@@ -22,17 +22,17 @@ class DeathEntry():
             if x != "..":
                 self.numdeaths.append(int(x))
             else:
-                self.numdeaths.append(-1)
+                self.numdeaths.append(0)
         for x in self.maledeaths:
             if x != "..":
                 self.nummaledeaths.append(int(x))
             else:
-                self.nummaledeaths.append(-1)
+                self.nummaledeaths.append(0)
         for x in self.femaledeaths:
             if x != "..":
                 self.numfemaledeaths.append(int(x))
             else:
-                self.numfemaledeaths.append(-1)
+                self.numfemaledeaths.append(0)
         self.oddeaths = OrderedDict(zip(self.years, self.numdeaths))
         self.odmaledeaths = OrderedDict(zip(self.years, self.nummaledeaths))
         self.odfemaledeaths = OrderedDict(zip(self.years, self.numfemaledeaths))

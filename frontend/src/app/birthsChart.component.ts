@@ -146,7 +146,7 @@ export class BirthsChartComponent implements OnInit {
       ];
       this._chart.chart.update();
     }, 
-    error => console.log("Could not load birth chart data"));
+    error => console.log("Could not load birth chart data: " + this.regionc + " --- " + this.graphText));
   }
 
   //  Updates bar chart color array to new color

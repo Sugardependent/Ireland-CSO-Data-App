@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^graphs/(?P<pk>.+)/complete', views.GraphPointsCompleteList.as_view()),
     url(r'^graphs/prop/(?P<regionname>.+)/(?P<graphname>.+)/(?P<gender>.+)', views.GraphPointsRegionTypeGender.as_view()),
     url(r'^graphs/birth/(?P<regionname>.+)/(?P<graphtype>.+)', views.GraphPointsBirth.as_view()),
+    url(r'^graphs/crime/(?P<regionname>.+)/(?P<graphtype>.+)', views.GraphPointsCrime.as_view()),
     url(r'^graphs/prop/(?P<regionname>.+)/(?P<graphname>.+)', views.GraphPointsRegionType.as_view()),
     url(r'^graphs/prop/(?P<regionname>.+)', views.GraphPointsRegion.as_view()),
     url(r'^points/$', views.Data_PointList.as_view()),

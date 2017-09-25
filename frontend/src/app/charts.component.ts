@@ -1,21 +1,21 @@
-import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { Location }                 from '@angular/common';
+import { Component, Input, OnInit, OnChanges } from "@angular/core";
+import { ActivatedRoute, Router, ParamMap } from "@angular/router";
+import { Location } from "@angular/common";
 
-import 'rxjs/add/operator/bufferTime';
-import 'rxjs/add/operator/switchMap';
+import "rxjs/add/operator/bufferTime";
+import "rxjs/add/operator/switchMap";
 
 @Component({
-  selector: 'app-charts',
-  templateUrl: './charts.component.html',
-  styleUrls: ['./charts.component.scss']
+  selector: "app-charts",
+  templateUrl: "./charts.component.html",
+  styleUrls: ["./charts.component.scss"]
 })
-
 export class ChartsComponent {
   regiont: string = "state";
   nonGardaRegion: boolean = true;
   deathsTrig: boolean = false;
   birthsTrig: boolean = false;
+  birthsCheckRegions: string[] = ["leinster", "ulster", "munster", "connacht"];
 
   dub1: string = "Dublin City";
   dub2: string = "Fingal";
@@ -38,17 +38,22 @@ export class ChartsComponent {
   tipTrig: boolean = false;
   wfdTrig: boolean = false;
   gwyTrig: boolean = false;
-  
-  //  Subscribes to url changes to catch changes 
+
+  public strregions = {
+    "garda-region-eastern":"eastern-region",
+    "garda-region-dublin-metro":"dublin-region",
+    "garda-region-northern":"northern-region",
+    "garda-region-western":"western-region",
+    "garda-region-southern":"southern-region",
+    "garda-region-south-eastern":"south-eastern-region",
+}
+
+  //  Subscribes to url changes to catch changes
   //  "region" parameter and update accordingly
-  constructor(
-    private route: ActivatedRoute,
-    private location: Location
-  ) 
-  {
+  constructor(private route: ActivatedRoute, private location: Location) {
     location.subscribe(x => {
-      this.getRegion()
-    })
+      this.getRegion();
+    });
   }
 
   ngOnInit(): void {
@@ -67,22 +72,22 @@ export class ChartsComponent {
       this.birthsTrig = false;
       this.deathsTrig = false;
 
-      let regiontemp = params['regionname'];
+      let regiontemp = params["regionname"];
       if (regiontemp.indexOf("garda") !== -1) {
         this.nonGardaRegion = false;
-        this.regiont = regiontemp.replace("-", " ");
+        this.regiont = this.strregions[regiontemp];
       } else {
         this.nonGardaRegion = true;
         if (regiontemp == "state") {
           this.deathsTrig = true;
-        } 
+        }
 
         switch (regiontemp) {
           case "dublin": {
             this.dubTrig = true;
             break;
           }
-        
+
           case "cork": {
             this.corkTrig = true;
             break;
@@ -104,14 +109,16 @@ export class ChartsComponent {
             break;
           }
           default: {
-            this.birthsTrig = true;
-            break;
+            if (this.birthsCheckRegions.includes(regiontemp)) {
+              this.birthsTrig = false;
+            } else {
+              this.birthsTrig = true;
+            }
           }
         }
 
-      this.regiont = regiontemp;
+        this.regiont = regiontemp;
       }
     });
   }
-
 }

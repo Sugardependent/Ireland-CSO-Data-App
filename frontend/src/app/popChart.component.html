@@ -1,5 +1,5 @@
 <div class="bar-chart-container">
-    <h3 class="graph-title">Population {{genderTextShow}}</h3>
+    <h3 class="graph-title">{{region}}: Population [{{genderTextShow}}]</h3>
     <div style="display: block">
       <canvas baseChart
               [datasets]="barChartData"
@@ -11,6 +11,6 @@
               (chartHover)="chartHovered($event)"
               (chartClick)="chartClicked($event)"></canvas>
     </div>
-    <button class="genderToggle" (click)="GenderButton()">Gender Profile</button>
+    <button class="buttonToggle" (click)="GenderButton()">Gender Profile</button>
   </div>
   

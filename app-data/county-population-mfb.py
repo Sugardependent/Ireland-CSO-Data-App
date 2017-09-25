@@ -88,7 +88,7 @@ with open('county-population-mfb-all.csv', newline='') as csvfile:
                         if x != "..":
                             numentry.append(int(x))
                         else:
-                            numentry.append(-1)
+                            numentry.append(0)
                     entry = OrderedDict(zip(years, numentry))
                     currentEntry.populationNumber = entry
 
@@ -100,7 +100,7 @@ with open('county-population-mfb-all.csv', newline='') as csvfile:
                         if x != "..":
                             numentry.append(int(x))
                         else:
-                            numentry.append(-1)
+                            numentry.append(0)
                     entry = OrderedDict(zip(years, numentry))
                     currentEntry.populationChange = entry
 
