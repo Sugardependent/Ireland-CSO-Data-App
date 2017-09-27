@@ -9,7 +9,7 @@ import { GraphData } from "./graphdata";
 
 @Injectable()
 export class GraphService {
-  private baseUrl: string = "http://127.0.0.1:8000/graphs";
+  private baseUrl: string = "http://127.0.0.1:8000/cso-api/graphs";
   private _graphData: Observable<GraphData> = null;
 
   //  Caches HTTP Requests
@@ -29,7 +29,7 @@ export class GraphService {
         this.graphDataCached.delete(firstCacheIter.next().value);
       }
       let graphData$ = this.http
-        .get(`${this.baseUrl}/prop/${regiont}/${grapht}/${gendert}?format=json`)
+        .get(`${this.baseUrl}/query/${regiont}/${grapht}/${gendert}?format=json`)
         .map(mapGraph)
         .publishReplay(5)
         .refCount();
@@ -70,7 +70,7 @@ export class GraphService {
   }
 
 
-  getbirths(regiont: string, grapht: string): Observable<GraphData> {
+  getBirths(regiont: string, grapht: string): Observable<GraphData> {
     let gendert = "both";
     let idString = regiont + grapht + gendert;
     console.log(idString);

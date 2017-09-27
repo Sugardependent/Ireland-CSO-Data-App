@@ -203,7 +203,7 @@ export class CrimeChartComponent implements OnInit {
   }
 
   //  Changes Graph and updates chart
-  public GraphTypeButton(graphtype: string): void {
+  public GraphTypeButton(): void {
     if (this.graphType == (this.maxKey - 1)) {
       this.graphType = this.minKey;
     } else {

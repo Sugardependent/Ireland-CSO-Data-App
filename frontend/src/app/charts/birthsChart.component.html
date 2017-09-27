@@ -3,7 +3,7 @@
     <h4 class="graph-title">{{region}}: <span class="graphSubTitle">{{graphTextShow}}</span></h4>
     <div style="display: block">
         <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
-            [colors]="barChartColorSettings" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+            [colors]="barChartColorSettings" [chartType]="barChartType"></canvas>
     </div>
     <button class="buttonToggle" (click)="GraphTypeButton()">Cycle Graphs</button>
     <ul class="smaller">

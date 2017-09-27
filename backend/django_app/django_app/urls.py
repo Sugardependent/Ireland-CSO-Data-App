@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
 
 urlpatterns = [
-    url(r'^', include('cso_api.urls')),
+    url(r'^cso-api/', include('cso_api.urls')),
 ]

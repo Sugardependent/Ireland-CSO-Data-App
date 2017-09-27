@@ -76,7 +76,7 @@ export class BirthsChartComponent implements OnInit {
   }
 
   //  Changes Graph Data and updates chart
-  public GraphTypeButton(graphtype: string): void {
+  public GraphTypeButton(): void {
     switch (this.graphType) {
         case 1: {
             this.graphType = 2;
@@ -128,7 +128,7 @@ export class BirthsChartComponent implements OnInit {
   //  for population data
   public LoadChart(): void {
     this.graphService
-    .getbirths(this.regionc, this.graphText)
+    .getBirths(this.regionc, this.graphText)
     .subscribe(graphdata => {
       this.xvalues = [];
       this.yvalues = [];
