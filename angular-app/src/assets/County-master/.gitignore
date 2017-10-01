@@ -1,8 +1,0 @@
-# SublimeText project files
-*.sublime-workspace
-*.sublime-project
-# VS 2012 project files
-*.sln
-*.v11.suo
-*.mswwsettings
-*.gitattributes
