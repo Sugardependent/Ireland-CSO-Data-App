@@ -126,13 +126,6 @@ with open('county-population-mfb-all.csv', newline='') as csvfile:
                 femaleEntries.append(z)
                 femaleRegions.append(z.region)
 
-        """
-        print(len(bothEntries))
-        print(len(maleEntries))
-        print(len(femaleEntries))
-        print(femaleRegions)
-        print(maleRegions)
-        """
 
 try:
     connect_str = "dbname='csodata' user='admin1' host='localhost' " +\
@@ -166,10 +159,8 @@ try:
 
     conn.commit()
 
-
-#    cursor.execute("""SELECT * FROM graph""")
-#    rows = cursor.fetchall()
-#    print(rows)
+    print("Finished Loading Population Data")
+    
 except Exception as e:
     print("Issues Connecting: Exception Thrown")
     print(e)

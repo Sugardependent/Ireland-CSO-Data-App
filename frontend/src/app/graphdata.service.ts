@@ -9,7 +9,7 @@ import { GraphData } from "./graphdata";
 
 @Injectable()
 export class GraphService {
-  private baseUrl: string = "http://127.0.0.1:8000/cso-api/graphs";
+  private baseUrl: string = "/cso-api/graphs";
   private _graphData: Observable<GraphData> = null;
 
   //  Caches HTTP Requests

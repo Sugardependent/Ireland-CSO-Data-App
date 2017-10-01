@@ -205,8 +205,6 @@ with open('garda_region-crime.csv', newline='') as csvfile:
                 if n in (" ".join(row)):
                     if currentEntry:
                         entries.append(currentEntry)
-                        #print(currentEntry.region, count)
-                        print(len(grapharr))
                         count = 0
                         grapharr = []
                     s = n[1:]
@@ -216,11 +214,8 @@ with open('garda_region-crime.csv', newline='') as csvfile:
 
         if " ".join(row)[:3] == '" "':
 
-            
-            #print(" ".join(row)[:50])
             for x in strgraphs:
                 if x in (" ".join(row)):
-                    #print(" ".join(row))
                     numentry = []
                     entry = trunc_at(" ".join(row), '"', 4)[1:]
                     entry = entry.split(",")
@@ -236,10 +231,6 @@ with open('garda_region-crime.csv', newline='') as csvfile:
                     break
 
     entries.append(currentEntry)
-    print(countfile)
-#for x in entries:
-#    print(x.region)
-
 
 #################################################################################
 
@@ -255,7 +246,6 @@ try:
             graphname = x
             graphregion = a.region
             gender = "both"
-            print(graphdata, "\n", graphname, " - ", graphregion, "\n", gender)
         
         
             commandcreate = "INSERT INTO graph(region_name, graph_name, gender) values(%s, %s, %s )"
@@ -275,6 +265,8 @@ try:
 
         #############################################################
 
+    print("Finished Loading Crime Data")
+    
 except Exception as e:
     print("Issues Connecting: Exception Thrown")
     print(e)

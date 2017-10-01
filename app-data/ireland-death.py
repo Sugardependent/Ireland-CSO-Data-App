@@ -39,8 +39,6 @@ class DeathEntry():
 
 deathentry = DeathEntry()
 
-#print(deathentry.odfemaledeaths)
-
 
 try:
     connect_str = "dbname='csodata' user='admin1' host='localhost' " +\
@@ -61,9 +59,8 @@ try:
 
     conn.commit()
 
-#    cursor.execute("""SELECT * FROM graph WHERE region_name='State'""")
-#    rows = cursor.fetchall()
-#    print(rows)
+    print("Finished Loading Crime Data")
+    
 except Exception as e:
     print("Issues Connecting: Exception Thrown")
     print(e)
