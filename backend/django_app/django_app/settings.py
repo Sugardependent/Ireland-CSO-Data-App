@@ -84,8 +84,8 @@ DATABASES = {
         'NAME': 'csodata',
         'USER': 'admin1',
         'PASSWORD': 'seismictoss613',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 

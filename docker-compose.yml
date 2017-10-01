@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  csoapp:
+    build: .
+    command: sh -c 'ls && ../../wait-for-it.sh db:5432 -- ../../run_app.sh'
+    environment:
+      - DB_ADAPTER=postgresql
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=admin1
+      - DB_PASS=seismictoss613
+      - DB_NAME=csodata
+    ports:
+      - 8000:8000
+  db:
+    image: postgres
+    hostname: db
+    environment:
+      POSTGRES_USER: "admin1"
+      POSTGRES_PASSWORD: "seismictoss613"
+      POSTGRES_DB: "csodata"
+
