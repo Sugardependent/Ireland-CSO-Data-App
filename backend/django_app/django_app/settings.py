@@ -25,7 +25,7 @@ SECRET_KEY = 'imerkcu$)=!5!rs=8-cz7%k^sn+)!ek36+tfz@9nx-v5j+wn6%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["www.sugardependent.com"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition

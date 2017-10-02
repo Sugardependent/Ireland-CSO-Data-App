@@ -3,6 +3,7 @@ version: '3'
 services:
   csoapp:
     build: ./backend/
+    restart: always
     command: sh -c "./wait-for-it.sh db:5432 -- python3 manage.py migrate && python3 ../app-data/data_init.py && uwsgi uwsgiconfig.ini"
     environment:
       - DB_ADAPTER=postgresql
