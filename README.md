@@ -1,6 +1,6 @@
 # Irish Census Data Webapp
 
-Built on Angular 2 and Django Rest Framework. Utilizes Docker, NGinx and UWsgi for backend deployment. Angular Frontend bundled using webpack. 
+Built on Angular 2 and Django Rest Framework. Utilizes Docker, NGinx and UWsgi for backend deployment. Angular, Bootstrap and ChartJS Frontend bundled using Webpack. 
 
 Displays some sample Irish Census data sampled from the <a href="http://www.cso.ie/">Central Statistics Office</a>.
 <br/><br/>
